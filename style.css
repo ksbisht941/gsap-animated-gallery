@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;0,800;1,300&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background:#f6eee3;
+    font-family: 'Raleway', sans-serif;
+}
+
+section {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: 830px;
+    /* min-height: 100vh; */
+    position: relative;
+}
+section .container {
+    max-width: 1360px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+section .container .figure {
+    height: 580px;
+    width: 800px;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+section:nth-child(odd) .container .figure {
+    transform: translate(-20%, -65%);
+}
+
+section:nth-child(even) .container .figure {
+    transform: translate(-70%, -55%);
+}
+
+section .container .figure .title {
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(5%, 50%);
+}
+
+section .container .figure .img-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 580px;
+    width: 800px;
+    overflow: hidden;
+}
+
+section .container .figure .cursor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: #000;
+    
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 300;
+    color: #fff;
+
+    transition: all .3s ease;
+}
+
+section .container .figure .cursor span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section .container .figure:hover .cursor {
+    transform: translate(-50%, -150%) scale(1);
+    opacity: 1;
+}
+
+section .container .figure .label {
+    position: absolute;
+    top: 2%;
+    left: -6%;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    text-align: right;
+}
+
+section .container .figure .label .serial {
+    font-weight: 700;
+}
