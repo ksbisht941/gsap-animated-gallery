@@ -23,6 +23,7 @@ section {
     /* min-height: 100vh; */
     position: relative;
 }
+
 section .container {
     max-width: 1360px;
     padding-left: 15px;
@@ -51,6 +52,7 @@ section .container .figure .title {
     font-weight: 800;
     line-height: 100px;
     position: absolute;
+    color: #000;
     bottom: 0;
     left: 0;
     transform: translate(5%, 50%);
@@ -65,41 +67,6 @@ section .container .figure .img-placeholder {
     overflow: hidden;
 }
 
-section .container .figure .cursor {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: #000;
-    
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    
-    font-size: 12px;
-    line-height: 12px;
-    font-weight: 300;
-    color: #fff;
-
-    transition: all .3s ease;
-}
-
-section .container .figure .cursor span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-section .container .figure:hover .cursor {
-    transform: translate(-50%, -150%) scale(1);
-    opacity: 1;
-}
-
 section .container .figure .label {
     position: absolute;
     top: 2%;
@@ -107,8 +74,73 @@ section .container .figure .label {
     transform: rotate(180deg);
     writing-mode: vertical-rl;
     text-align: right;
+    color: #000;
 }
 
 section .container .figure .label .serial {
     font-weight: 700;
+}
+
+.circular-text {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    transform: scale(0);
+    opacity: 0;
+    transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+}
+
+.circular-text .text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 12px;
+    animation: rotate 7.5s linear infinite;
+}   
+
+.circular-text .text span {
+    position: absolute;
+    top: -50px;
+    transform-origin: 0 50px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+}
+
+.overlay:not(:last-child) {
+    border-right: 1px solid #ddd;
+}
+
+.overlay.one {
+    left: 0;
+}
+
+.overlay.two {
+    left: 20vw;
+}
+
+.overlay.three {
+    left: 40vw;
+}
+
+.overlay.four {
+    left: 60vw;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
